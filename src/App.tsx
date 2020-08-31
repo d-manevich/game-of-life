@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import last from 'lodash-es/last';
 import take from 'lodash-es/take';
 import nth from 'lodash-es/nth';
@@ -7,8 +7,8 @@ import Cell from './Cell';
 
 type Field = boolean[][];
 
-const rowsCount = 10;
-const cellsCount = 12;
+const rowsCount = 20;
+const cellsCount = 20;
 const initialField: Field = Array(rowsCount).fill(Array(cellsCount).fill(false));
 
 function updateFieldCell(field: Field, row: number, cell: number, isLive: boolean): Field {
@@ -66,9 +66,22 @@ function calcNextGeneration(oldGeneration: Field): Field {
 }
 
 const App: React.FC = () => {
-  const [history, setHistory] = React.useState<Field[]>([initialField]);
-  const [isPlaying, setPlaying] = React.useState<boolean>(false);
+  const intervalRef = useRef<number>(null!);
+  const [history, setHistory] = useState<Field[]>([initialField]);
+  const [isPlaying, setPlaying] = useState<boolean>(false);
   const currentState: Field = last(history) || initialField;
+
+  useEffect(() => {
+    if (isPlaying) {
+      intervalRef.current = window.setInterval(() => {
+        setHistory(history => [...history, calcNextGeneration(last(history)!)])
+      }, 200);
+    }
+
+    return () => {
+      window.clearInterval(intervalRef.current);
+    };
+  }, [isPlaying]);
 
   return (
     <div className="App">
