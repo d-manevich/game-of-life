@@ -12,12 +12,8 @@ const cellsCount = 20;
 const initialField: Field = Array(rowsCount).fill(Array(cellsCount).fill(false));
 
 function updateFieldCell(field: Field, row: number, cell: number, isLive: boolean): Field {
-  const newField: Field = field.map(
-    (oldRow, rowIndex) => (
-      row !== rowIndex
-        ? oldRow
-        : oldRow.map((oldCell, cellIndex) => cell !== cellIndex ? oldCell : isLive)
-    )
+  const newField: Field = field.map((oldRow, rowIndex) =>
+    row !== rowIndex ? oldRow : oldRow.map((oldCell, cellIndex) => (cell !== cellIndex ? oldCell : isLive)),
   );
   return newField;
 }
@@ -30,23 +26,18 @@ function getNeighbours(rowIndex: number, cellIndex: number, oldGeneration: Field
       if (!(row === rowIndex && cell === cellIndex)) {
         neighbours += Number(
           nth(
-            nth(oldGeneration, (row >= rowsCount ? row - rowsCount : row)),
-            (cell >= cellsCount ? cell - cellsCount : cell)
-          )
-        )
+            nth(oldGeneration, row >= rowsCount ? row - rowsCount : row),
+            cell >= cellsCount ? cell - cellsCount : cell,
+          ),
+        );
       }
     }
   }
-  
+
   return neighbours;
 }
 
-function calcCellLive(
-  cell: boolean,
-  rowIndex: number,
-  cellIndex: number,
-  oldGeneration: Field
-): boolean {
+function calcCellLive(cell: boolean, rowIndex: number, cellIndex: number, oldGeneration: Field): boolean {
   const neighbours: number = getNeighbours(rowIndex, cellIndex, oldGeneration);
 
   if (cell && neighbours < 2) return false;
@@ -57,16 +48,16 @@ function calcCellLive(
   return false;
 }
 
-function calcNextGeneration(oldGeneration: Field): Field {
+function calcNextGeneration(oldGeneration: Field = initialField): Field {
   const nextGeneration: Field = oldGeneration.map((row: boolean[], rowIndex: number) =>
-    row.map((cell: boolean, cellIndex: number) => calcCellLive(cell, rowIndex, cellIndex, oldGeneration))
+    row.map((cell: boolean, cellIndex: number) => calcCellLive(cell, rowIndex, cellIndex, oldGeneration)),
   );
 
   return nextGeneration;
 }
 
 const App: React.FC = () => {
-  const intervalRef = useRef<number>(null!);
+  const intervalRef = useRef<number>();
   const [history, setHistory] = useState<Field[]>([initialField]);
   const [isPlaying, setPlaying] = useState<boolean>(false);
   const currentState: Field = last(history) || initialField;
@@ -74,7 +65,7 @@ const App: React.FC = () => {
   useEffect(() => {
     if (isPlaying) {
       intervalRef.current = window.setInterval(() => {
-        setHistory(history => [...history, calcNextGeneration(last(history)!)])
+        setHistory((history) => [...history, calcNextGeneration(last(history))]);
       }, 200);
     }
 
@@ -92,7 +83,13 @@ const App: React.FC = () => {
               <Cell
                 key={cellIndex}
                 live={cell}
-                onClick={() => setHistory(([...take(history, history.length - 1), updateFieldCell(currentState, rowIndex, cellIndex, !cell)]))} />
+                onClick={() =>
+                  setHistory([
+                    ...take(history, history.length - 1),
+                    updateFieldCell(currentState, rowIndex, cellIndex, !cell),
+                  ])
+                }
+              />
             ))}
           </div>
         ))}
@@ -104,6 +101,6 @@ const App: React.FC = () => {
       <div>Generation: {history.length}</div>
     </div>
   );
-}
+};
 
 export default App;
