@@ -26,8 +26,8 @@ export function nth<T>(array: T[], n: number): T | undefined {
   }
 
   let index = n;
-  if (n < 0) index = length - (Math.abs(n) % length);
-  if (n >= length) index = index % length;
+  if (index < 0) index = length - (Math.abs(n) % length);
+  if (index >= length) index = index % length;
 
   return array[index];
 }

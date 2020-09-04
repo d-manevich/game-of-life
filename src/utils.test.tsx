@@ -7,6 +7,21 @@ test('try to get any element of empty array', () => {
   expect(elem).toBeUndefined();
 });
 
+test('try to get the element at index 1 of one element array', () => {
+  const elem = nth(['a'], 1);
+  expect(elem).toBe('a');
+});
+
+test('try to get last element of one element array', () => {
+  const elem = nth(['a'], -1);
+  expect(elem).toBe('a');
+});
+
+test('try to get element with same negative index as array length', () => {
+  const elem = nth(testArray, -testArray.length);
+  expect(elem).toBe('a');
+});
+
 test('get the element at index 0', () => {
   const elem = nth(testArray, 0);
   expect(elem).toBe('a');
