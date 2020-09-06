@@ -1289,18 +1289,29 @@ exports[`renders game field 1`] = `
         />
       </div>
     </div>
-    <button>
-      Play
-    </button>
-    <button>
-      next step
-    </button>
-    <button>
-      reset
-    </button>
     <div>
       Generation: 
       1
+    </div>
+    <div>
+      <button>
+        Play
+      </button>
+      <button>
+        Reset
+      </button>
+      <div>
+        <button
+          disabled=""
+        >
+          &lt;
+        </button>
+        <button
+          disabled=""
+        >
+          &gt;
+        </button>
+      </div>
     </div>
   </div>
 </div>
