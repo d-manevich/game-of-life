@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Field, Params } from './types';
 import { nth } from './utils';
-import { generateInitialField, calcNextGeneration, updateFieldCell } from './game';
+import { generateInitialField, calcNextGeneration, updateCell } from './game';
 import './App.css';
 import Cell from './Cell';
 
@@ -33,7 +33,7 @@ const App: React.FC = () => {
               <Cell
                 key={col}
                 live={cell}
-                onClick={() => setHistory([...history.slice(0, -1), updateFieldCell(currentState, row, col, !cell)])}
+                onClick={() => setHistory([...history.slice(0, -1), updateCell(currentState, row, col, !cell)])}
               />
             ))}
           </div>
