@@ -1,0 +1,1307 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders game field 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <div
+      class="Field"
+    >
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+      <div
+        class="Field-row"
+      >
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+        <div
+          class="Cell false"
+        />
+      </div>
+    </div>
+    <button>
+      Play
+    </button>
+    <button>
+      next step
+    </button>
+    <button>
+      reset
+    </button>
+    <div>
+      Generation: 
+      1
+    </div>
+  </div>
+</div>
+`;

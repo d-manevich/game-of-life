@@ -29,8 +29,10 @@
     "eject": "react-scripts eject",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "jest": {
+    "transformIgnorePatterns": [
+      "/!node_modules\\/lodash-es/"
+    ]
   },
   "browserslist": {
     "production": [

@@ -1,94 +1,39 @@
 import React, { useRef, useState, useEffect } from 'react';
-import last from 'lodash-es/last';
-import take from 'lodash-es/take';
-import nth from 'lodash-es/nth';
+import { Field, Params } from './types';
+import { nth } from './utils';
+import { generateInitialField, calcNextGeneration, updateFieldCell } from './game';
 import './App.css';
 import Cell from './Cell';
 
-type Field = boolean[][];
-
-const rowsCount = 20;
-const cellsCount = 20;
-const initialField: Field = Array(rowsCount).fill(Array(cellsCount).fill(false));
-
-function updateFieldCell(field: Field, row: number, cell: number, isLive: boolean): Field {
-  const newField: Field = field.map((oldRow, rowIndex) =>
-    row !== rowIndex ? oldRow : oldRow.map((oldCell, cellIndex) => (cell !== cellIndex ? oldCell : isLive)),
-  );
-  return newField;
-}
-
-function getNeighbours(rowIndex: number, cellIndex: number, oldGeneration: Field): number {
-  let neighbours = 0;
-
-  for (let row = rowIndex - 1; row <= rowIndex + 1; row++) {
-    for (let cell = cellIndex - 1; cell <= cellIndex + 1; cell++) {
-      if (!(row === rowIndex && cell === cellIndex)) {
-        neighbours += Number(
-          nth(
-            nth(oldGeneration, row >= rowsCount ? row - rowsCount : row),
-            cell >= cellsCount ? cell - cellsCount : cell,
-          ),
-        );
-      }
-    }
-  }
-
-  return neighbours;
-}
-
-function calcCellLive(cell: boolean, rowIndex: number, cellIndex: number, oldGeneration: Field): boolean {
-  const neighbours: number = getNeighbours(rowIndex, cellIndex, oldGeneration);
-
-  if (cell && neighbours < 2) return false;
-  if (cell && (neighbours === 2 || neighbours === 3)) return true;
-  if (cell && neighbours > 3) return false;
-  if (!cell && neighbours === 3) return true;
-
-  return false;
-}
-
-function calcNextGeneration(oldGeneration: Field = initialField): Field {
-  const nextGeneration: Field = oldGeneration.map((row: boolean[], rowIndex: number) =>
-    row.map((cell: boolean, cellIndex: number) => calcCellLive(cell, rowIndex, cellIndex, oldGeneration)),
-  );
-
-  return nextGeneration;
-}
-
 const App: React.FC = () => {
   const intervalRef = useRef<number>();
-  const [history, setHistory] = useState<Field[]>([initialField]);
+  const [params, updateParams] = useState<Params>({ rows: 20, cols: 20 });
+  const [history, setHistory] = useState<Field[]>([generateInitialField(params)]);
   const [isPlaying, setPlaying] = useState<boolean>(false);
-  const currentState: Field = last(history) || initialField;
+  const currentState: Field = nth(history, -1) || generateInitialField(params);
 
   useEffect(() => {
     if (isPlaying) {
       intervalRef.current = window.setInterval(() => {
-        setHistory((history) => [...history, calcNextGeneration(last(history))]);
+        setHistory((history) => [...history, calcNextGeneration(nth(history, -1) || generateInitialField(params))]);
       }, 200);
     }
 
     return () => {
       window.clearInterval(intervalRef.current);
     };
-  }, [isPlaying]);
+  }, [isPlaying, params]);
 
   return (
     <div className="App">
       <div className="Field">
-        {currentState.map((row: boolean[], rowIndex: number) => (
-          <div className="Field-row" key={rowIndex}>
-            {row.map((cell: boolean, cellIndex: number) => (
+        {currentState.map((fieldRow: boolean[], row: number) => (
+          <div className="Field-row" key={row}>
+            {fieldRow.map((cell: boolean, col: number) => (
               <Cell
-                key={cellIndex}
+                key={col}
                 live={cell}
-                onClick={() =>
-                  setHistory([
-                    ...take(history, history.length - 1),
-                    updateFieldCell(currentState, rowIndex, cellIndex, !cell),
-                  ])
-                }
+                onClick={() => setHistory([...history.slice(0, -1), updateFieldCell(currentState, row, col, !cell)])}
               />
             ))}
           </div>
@@ -97,7 +42,7 @@ const App: React.FC = () => {
 
       <button onClick={() => setPlaying(!isPlaying)}>{!isPlaying ? 'Play' : 'Pause'}</button>
       <button onClick={() => setHistory([...history, calcNextGeneration(currentState)])}>next step</button>
-      <button onClick={() => setHistory([initialField])}>reset</button>
+      <button onClick={() => setHistory([generateInitialField(params)])}>reset</button>
       <div>Generation: {history.length}</div>
     </div>
   );
