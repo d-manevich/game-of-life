@@ -6,13 +6,25 @@ import './App.css';
 import Cell from './Cell';
 import Controls from './Controls';
 
+const initialParams: Params = {
+  rows: 20,
+  cols: 20,
+};
+
 const App: React.FC = () => {
   const intervalRef = useRef<number>();
-  const [params, updateParams] = useState<Params>({ rows: 20, cols: 20 });
+  const [params, setParams] = useState<Params>(initialParams);
   const [history, setHistory] = useState<Field[]>([generateInitialField(params)]);
   const [generation, setGeneration] = useState<number>(0);
   const [isPlaying, setPlaying] = useState<boolean>(false);
   const currentState: Field = nth(history, generation) || generateInitialField(params);
+
+  function updateParams(updParams: Params) {
+    const newParams = { ...params, ...updParams };
+    setParams(newParams);
+    setHistory([generateInitialField(newParams)]);
+    setGeneration(0);
+  }
 
   useEffect(() => {
     if (isPlaying) {
@@ -39,7 +51,7 @@ const App: React.FC = () => {
               <Cell
                 key={col}
                 live={cell}
-                onClick={() => setHistory([...history.slice(0, -1), updateCell(currentState, row, col, !cell)])}
+                onClick={() => setHistory([...history.slice(0, generation), updateCell(currentState, row, col, !cell)])}
               />
             ))}
           </div>
@@ -50,12 +62,15 @@ const App: React.FC = () => {
         isPlaying={isPlaying}
         togglePlay={() => setPlaying(!isPlaying)}
         onReset={() => {
-          setHistory([generateInitialField(params)]);
+          setHistory([generateInitialField(initialParams)]);
           setGeneration(0);
+          setParams(initialParams);
         }}
         generation={generation}
         maxGeneration={history.length - 1}
         onGenerationChange={setGeneration}
+        params={params}
+        updateParams={updateParams}
       />
     </div>
   );
