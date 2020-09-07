@@ -5,6 +5,7 @@ import { generateInitialField, calcNextGeneration, updateCell } from './game';
 import './App.css';
 import Cell from './Cell';
 import Controls from './Controls';
+import { PLANER_GUN } from './presets';
 
 const initialParams: Params = {
   rows: 20,
@@ -34,7 +35,7 @@ const App: React.FC = () => {
           return [...cutHistory, calcNextGeneration(nth(cutHistory, -1) || generateInitialField(params))];
         });
         setGeneration(generation + 1);
-      }, 200);
+      }, 50);
     }
 
     return () => {
