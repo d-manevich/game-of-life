@@ -63,6 +63,7 @@ const App: React.FC = () => {
         isPlaying={isPlaying}
         togglePlay={() => setPlaying(!isPlaying)}
         onReset={() => {
+          setPlaying(false);
           setHistory([generateInitialField(initialParams)]);
           setGeneration(0);
           setParams(initialParams);
