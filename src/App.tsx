@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Field, Params } from './types';
 import { nth } from './utils';
 import { generateInitialField, calcNextGeneration, updateCell } from './game';
 import './App.css';
 import Cell from './Cell';
 import Controls from './Controls';
-import { PLANER_GUN } from './presets';
+import PresetSelector from './PresetSelector';
+import { Field, Params, Preset } from './types';
 
 const initialParams: Params = {
   rows: 20,
@@ -72,6 +72,13 @@ const App: React.FC = () => {
         onGenerationChange={setGeneration}
         params={params}
         updateParams={updateParams}
+      />
+      <PresetSelector
+        onSelect={({ params, field }: Preset) => {
+          setHistory([field]);
+          setGeneration(0);
+          setParams(params);
+        }}
       />
     </div>
   );
