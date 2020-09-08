@@ -10,6 +10,8 @@ type Props = {
   onGenerationChange: (generation: number) => void;
   params: Params;
   updateParams: (params: Params) => void;
+  speed: number;
+  setSpeed: (speed: number) => void;
 };
 
 const Controls: React.FC<Props> = ({
@@ -21,6 +23,8 @@ const Controls: React.FC<Props> = ({
   onGenerationChange,
   params,
   updateParams,
+  speed,
+  setSpeed,
 }: Props) => (
   <div>
     <button onClick={togglePlay}>{!isPlaying ? 'Play' : 'Pause'}</button>
@@ -46,6 +50,16 @@ const Controls: React.FC<Props> = ({
       <button onClick={() => updateParams({ ...params, cols: params.cols - 1 })} disabled={params.cols <= 1}>
         del
       </button>
+    </div>
+    <div>
+      <span>Speed: {speed}</span>
+      <input
+        type="range"
+        min="50"
+        max="500"
+        value={speed}
+        onChange={(event) => setSpeed(parseInt(event.target.value))}
+      />
     </div>
   </div>
 );

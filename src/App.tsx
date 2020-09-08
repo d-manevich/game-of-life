@@ -18,6 +18,7 @@ const App: React.FC = () => {
   const [history, setHistory] = useState<Field[]>([generateInitialField(params)]);
   const [generation, setGeneration] = useState<number>(0);
   const [isPlaying, setPlaying] = useState<boolean>(false);
+  const [speed, setSpeed] = useState<number>(200);
   const currentState: Field = nth(history, generation) || generateInitialField(params);
 
   function updateParams(updParams: Params) {
@@ -35,13 +36,13 @@ const App: React.FC = () => {
           return [...cutHistory, calcNextGeneration(nth(cutHistory, -1) || generateInitialField(params))];
         });
         setGeneration(generation + 1);
-      }, 50);
+      }, speed);
     }
 
     return () => {
       window.clearInterval(intervalRef.current);
     };
-  }, [isPlaying, params, generation]);
+  }, [isPlaying, params, generation, speed]);
 
   return (
     <div className="App">
@@ -73,6 +74,8 @@ const App: React.FC = () => {
         onGenerationChange={setGeneration}
         params={params}
         updateParams={updateParams}
+        speed={speed}
+        setSpeed={setSpeed}
       />
       <PresetSelector
         onSelect={({ params, field }: Preset) => {
