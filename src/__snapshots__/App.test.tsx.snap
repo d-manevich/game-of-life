@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders game field 1`] = `
+exports[`renders game grid 1`] = `
 <div>
   <div
     class="App"
   >
     <div
-      class="Field"
+      class="Grid"
     >
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -73,7 +73,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -137,7 +137,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -201,7 +201,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -265,7 +265,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -329,7 +329,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -393,7 +393,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -457,7 +457,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -521,7 +521,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -585,7 +585,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -649,7 +649,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -713,7 +713,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -777,7 +777,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -841,7 +841,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -905,7 +905,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -969,7 +969,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -1033,7 +1033,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -1097,7 +1097,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -1161,7 +1161,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -1225,7 +1225,7 @@ exports[`renders game field 1`] = `
         />
       </div>
       <div
-        class="Field-row"
+        class="Grid-row"
       >
         <div
           class="Cell false"
@@ -1312,6 +1312,60 @@ exports[`renders game field 1`] = `
           &gt;
         </button>
       </div>
+      <div>
+        <span>
+          rows 
+        </span>
+        <button>
+          add
+        </button>
+        <button>
+          del
+        </button>
+      </div>
+      <div>
+        <span>
+          columns 
+        </span>
+        <button>
+          add
+        </button>
+        <button>
+          del
+        </button>
+      </div>
+      <div>
+        <span>
+          Speed: 
+          200
+        </span>
+        <input
+          max="500"
+          min="50"
+          type="range"
+          value="200"
+        />
+      </div>
+    </div>
+    <div>
+      <span>
+        Presets: 
+      </span>
+      <button>
+        Clock
+      </button>
+      <button>
+        Ship 44P5H2V0
+      </button>
+      <button>
+        Hangar
+      </button>
+      <button>
+        Pulsar
+      </button>
+      <button>
+        Planer gun
+      </button>
     </div>
   </div>
 </div>

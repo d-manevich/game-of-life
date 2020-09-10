@@ -1,28 +1,28 @@
-import { Field, Params } from './types';
+import { Grid, Params } from './types';
 import { nth } from './utils';
 
-export function generateInitialField({ rows, cols }: Params): Field {
+export function generateInitialGrid({ rows, cols }: Params): Grid {
   return Array(rows).fill(Array(cols).fill(false));
 }
 
-export function updateCell(field: Field, row: number, col: number, cell: boolean): Field {
-  const newField: Field = field.map((fieldRow, rowIndex) =>
-    row !== rowIndex ? fieldRow : fieldRow.map((oldCell, colIndex) => (col !== colIndex ? oldCell : cell)),
+export function updateCell(grid: Grid, row: number, col: number, cell: boolean): Grid {
+  const newGrid: Grid = grid.map((gridRow, rowIndex) =>
+    row !== rowIndex ? gridRow : gridRow.map((oldCell, colIndex) => (col !== colIndex ? oldCell : cell)),
   );
-  return newField;
+  return newGrid;
 }
 
-export function getNeighbours(field: Field, row: number, col: number): number {
+export function getNeighbours(grid: Grid, row: number, col: number): number {
   let neighbours = 0;
 
   for (let y = row - 1; y <= row + 1; y++) {
-    const fieldRow = nth(field, y) || [];
+    const gridRow = nth(grid, y) || [];
 
     for (let x = col - 1; x <= col + 1; x++) {
-      const fieldCell = nth(fieldRow, x) || false;
+      const gridCell = nth(gridRow, x) || false;
 
       if (!(y === row && x === col)) {
-        neighbours += Number(fieldCell);
+        neighbours += Number(gridCell);
       }
     }
   }
@@ -30,9 +30,9 @@ export function getNeighbours(field: Field, row: number, col: number): number {
   return neighbours;
 }
 
-export function calcCellLive(field: Field, row: number, col: number): boolean {
-  const cell: boolean = field[row][col];
-  const neighbours: number = getNeighbours(field, row, col);
+export function calcCellLive(grid: Grid, row: number, col: number): boolean {
+  const cell: boolean = grid[row][col];
+  const neighbours: number = getNeighbours(grid, row, col);
 
   if (cell && neighbours < 2) return false;
   if (cell && (neighbours === 2 || neighbours === 3)) return true;
@@ -42,9 +42,9 @@ export function calcCellLive(field: Field, row: number, col: number): boolean {
   return false;
 }
 
-export function calcNextGeneration(field: Field): Field {
-  const nextGeneration: Field = field.map((fieldRow: boolean[], row: number) =>
-    fieldRow.map((cell: boolean, col: number) => calcCellLive(field, row, col)),
+export function calcNextGeneration(grid: Grid): Grid {
+  const nextGeneration: Grid = grid.map((gridRow: boolean[], row: number) =>
+    gridRow.map((cell: boolean, col: number) => calcCellLive(grid, row, col)),
   );
 
   return nextGeneration;

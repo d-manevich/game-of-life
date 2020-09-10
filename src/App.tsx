@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { nth } from './utils';
-import { generateInitialField, calcNextGeneration, updateCell } from './game';
+import { generateInitialGrid, calcNextGeneration, updateCell } from './game';
 import './App.css';
 import Cell from './Cell';
 import Controls from './Controls';
 import PresetSelector from './PresetSelector';
-import { Field, Params, Preset } from './types';
+import { Grid, Params, Preset } from './types';
 
 const initialParams: Params = {
   rows: 20,
@@ -15,16 +15,16 @@ const initialParams: Params = {
 const App: React.FC = () => {
   const intervalRef = useRef<number>();
   const [params, setParams] = useState<Params>(initialParams);
-  const [history, setHistory] = useState<Field[]>([generateInitialField(params)]);
+  const [history, setHistory] = useState<Grid[]>([generateInitialGrid(params)]);
   const [generation, setGeneration] = useState<number>(0);
   const [isPlaying, setPlaying] = useState<boolean>(false);
   const [speed, setSpeed] = useState<number>(200);
-  const currentState: Field = nth(history, generation) || generateInitialField(params);
+  const currentState: Grid = nth(history, generation) || generateInitialGrid(params);
 
   function updateParams(updParams: Params) {
     const newParams = { ...params, ...updParams };
     setParams(newParams);
-    setHistory([generateInitialField(newParams)]);
+    setHistory([generateInitialGrid(newParams)]);
     setGeneration(0);
   }
 
@@ -33,7 +33,7 @@ const App: React.FC = () => {
       intervalRef.current = window.setInterval(() => {
         setHistory((history) => {
           const cutHistory = history.slice(0, generation + 1);
-          return [...cutHistory, calcNextGeneration(nth(cutHistory, -1) || generateInitialField(params))];
+          return [...cutHistory, calcNextGeneration(nth(cutHistory, -1) || generateInitialGrid(params))];
         });
         setGeneration(generation + 1);
       }, speed);
@@ -46,10 +46,10 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <div className="Field">
-        {currentState.map((fieldRow: boolean[], row: number) => (
-          <div className="Field-row" key={row}>
-            {fieldRow.map((cell: boolean, col: number) => (
+      <div className="Grid">
+        {currentState.map((gridRow: boolean[], row: number) => (
+          <div className="Grid-row" key={row}>
+            {gridRow.map((cell: boolean, col: number) => (
               <Cell
                 key={col}
                 live={cell}
@@ -65,7 +65,7 @@ const App: React.FC = () => {
         togglePlay={() => setPlaying(!isPlaying)}
         onReset={() => {
           setPlaying(false);
-          setHistory([generateInitialField(initialParams)]);
+          setHistory([generateInitialGrid(initialParams)]);
           setGeneration(0);
           setParams(initialParams);
         }}
@@ -78,8 +78,8 @@ const App: React.FC = () => {
         setSpeed={setSpeed}
       />
       <PresetSelector
-        onSelect={({ params, field }: Preset) => {
-          setHistory([field]);
+        onSelect={({ params, grid }: Preset) => {
+          setHistory([grid]);
           setGeneration(0);
           setParams(params);
         }}

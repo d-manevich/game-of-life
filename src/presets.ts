@@ -3,7 +3,7 @@ import { Preset } from './types';
 // prettier-ignore
 export const CLOCK: Preset = {
   params: { rows: 20, cols: 20 },
-  field: [
+  grid: [
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -30,7 +30,7 @@ export const CLOCK: Preset = {
 // prettier-ignore
 export const SHIP_44P5H2V0: Preset = {
   params: { rows: 21, cols: 21 },
-  field: [
+  grid: [
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -58,7 +58,7 @@ export const SHIP_44P5H2V0: Preset = {
 // prettier-ignore
 export const HANGAR: Preset = {
   params: { rows: 21, cols: 21 },
-  field: [
+  grid: [
     [true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false],
     [true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false],
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -86,7 +86,7 @@ export const HANGAR: Preset = {
 // prettier-ignore
 export const PULSAR: Preset = {
   params: { rows: 21, cols: 21 },
-  field: [
+  grid: [
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -113,7 +113,7 @@ export const PULSAR: Preset = {
 // prettier-ignore
 export const PLANER_GUN: Preset = {
   params: { rows: 29, cols: 43 },
-  field: [
+  grid: [
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
