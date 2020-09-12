@@ -2,38 +2,20 @@ import React from 'react';
 import { Params } from './types';
 
 type Props = {
-  isPlaying: boolean;
-  togglePlay: () => void;
-  onReset: () => void;
   generation: number;
   maxGeneration: number;
   onGenerationChange: (generation: number) => void;
   params: Params;
   updateParams: (params: Params) => void;
-  speed: number;
-  setSpeed: (speed: number) => void;
 };
 
-const Controls: React.FC<Props> = ({
-  isPlaying,
-  togglePlay,
-  onReset,
-  generation,
-  maxGeneration,
-  onGenerationChange,
-  params,
-  updateParams,
-  speed,
-  setSpeed,
-}: Props) => (
+const Controls: React.FC<Props> = ({ generation, maxGeneration, onGenerationChange, params, updateParams }: Props) => (
   <div>
-    <button onClick={togglePlay}>{!isPlaying ? 'Play' : 'Pause'}</button>
-    <button onClick={onReset}>Reset</button>
     <div>
-      <button onClick={() => onGenerationChange(generation - 1)} disabled={isPlaying || generation <= 0}>
+      <button onClick={() => onGenerationChange(generation - 1)} disabled={generation <= 0}>
         {'<'}
       </button>
-      <button onClick={() => onGenerationChange(generation + 1)} disabled={isPlaying || generation >= maxGeneration}>
+      <button onClick={() => onGenerationChange(generation + 1)} disabled={generation >= maxGeneration}>
         {'>'}
       </button>
     </div>
@@ -50,16 +32,6 @@ const Controls: React.FC<Props> = ({
       <button onClick={() => updateParams({ ...params, cols: params.cols - 1 })} disabled={params.cols <= 1}>
         del
       </button>
-    </div>
-    <div>
-      <span>Speed: {speed}</span>
-      <input
-        type="range"
-        min="50"
-        max="500"
-        value={speed}
-        onChange={(event) => setSpeed(parseInt(event.target.value))}
-      />
     </div>
   </div>
 );

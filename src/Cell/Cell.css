@@ -1,5 +1,5 @@
 .Cell {
-  cursor: pointer;
+  pointer-events: auto;
   background-color: transparent;
   border: 1px solid #61dafb;
   width: 12px;
@@ -7,6 +7,6 @@
   margin: 2px;
 }
 
-.Cell.live {
+.Cell[data-live=true] {
   background-color: #61dafb;
 }

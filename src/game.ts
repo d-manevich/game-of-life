@@ -1,18 +1,18 @@
-import { Grid, Params } from './types';
+import { GridType, Params } from './types';
 import { nth } from './utils';
 
-export function generateInitialGrid({ rows, cols }: Params): Grid {
+export function generateInitialGrid({ rows, cols }: Params): GridType {
   return Array(rows).fill(Array(cols).fill(false));
 }
 
-export function updateCell(grid: Grid, row: number, col: number, cell: boolean): Grid {
-  const newGrid: Grid = grid.map((gridRow, rowIndex) =>
+export function updateCell(grid: GridType, row: number, col: number, cell: boolean): GridType {
+  const newGrid: GridType = grid.map((gridRow, rowIndex) =>
     row !== rowIndex ? gridRow : gridRow.map((oldCell, colIndex) => (col !== colIndex ? oldCell : cell)),
   );
   return newGrid;
 }
 
-export function getNeighbours(grid: Grid, row: number, col: number): number {
+export function getNeighbours(grid: GridType, row: number, col: number): number {
   let neighbours = 0;
 
   for (let y = row - 1; y <= row + 1; y++) {
@@ -30,7 +30,7 @@ export function getNeighbours(grid: Grid, row: number, col: number): number {
   return neighbours;
 }
 
-export function calcCellLive(grid: Grid, row: number, col: number): boolean {
+export function calcCellLive(grid: GridType, row: number, col: number): boolean {
   const cell: boolean = grid[row][col];
   const neighbours: number = getNeighbours(grid, row, col);
 
@@ -42,8 +42,8 @@ export function calcCellLive(grid: Grid, row: number, col: number): boolean {
   return false;
 }
 
-export function calcNextGeneration(grid: Grid): Grid {
-  const nextGeneration: Grid = grid.map((gridRow: boolean[], row: number) =>
+export function calcNextGeneration(grid: GridType): GridType {
+  const nextGeneration: GridType = grid.map((gridRow: boolean[], row: number) =>
     gridRow.map((cell: boolean, col: number) => calcCellLive(grid, row, col)),
   );
 

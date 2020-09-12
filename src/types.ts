@@ -1,4 +1,4 @@
-export type Grid = boolean[][];
+export type GridType = boolean[][];
 
 export type Params = {
   rows: number;
@@ -7,5 +7,5 @@ export type Params = {
 
 export type Preset = {
   params: Params;
-  grid: Grid;
+  grid: GridType;
 };
