@@ -1,4 +1,4 @@
-import { Preset } from './types';
+import { Preset } from '../types';
 
 // prettier-ignore
 export const CLOCK: Preset = {

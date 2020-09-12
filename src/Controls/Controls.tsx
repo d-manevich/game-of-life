@@ -1,5 +1,5 @@
 import React from 'react';
-import { Params } from './types';
+import { Params } from '../types';
 
 type Props = {
   generation: number;

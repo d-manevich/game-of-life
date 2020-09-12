@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import Grid from './Grid';
-import { GridType } from './types';
+import Grid from '../Grid';
+import { GridType } from '../types';
 
 type Props = {
   grid: GridType;

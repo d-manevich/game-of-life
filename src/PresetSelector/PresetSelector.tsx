@@ -1,6 +1,6 @@
 import React from 'react';
 import { CLOCK, SHIP_44P5H2V0, HANGAR, PULSAR, PLANER_GUN } from './presets';
-import { Preset } from './types';
+import { Preset } from '../types';
 
 type Props = {
   onSelect: (preset: Preset) => void;
