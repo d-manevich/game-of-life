@@ -1,5 +1,6 @@
 .Cell {
-  pointer-events: auto;
+  cursor: pointer;
+  touch-action: none;
   background-color: transparent;
   border: 1px solid #61dafb;
   width: 12px;

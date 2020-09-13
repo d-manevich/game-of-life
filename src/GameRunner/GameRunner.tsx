@@ -11,7 +11,6 @@ type Props = {
 
 const GameRunner: React.FC<Props> = ({ grid, onGameTick, onCellClick, onReset }: Props) => {
   const intervalRef = useRef<number>();
-  const cellRef = useRef<HTMLElement>();
   const [isPlaying, setPlaying] = useState<boolean>(false);
   const [speed, setSpeed] = useState<number>(200);
 
@@ -30,27 +29,9 @@ const GameRunner: React.FC<Props> = ({ grid, onGameTick, onCellClick, onReset }:
     };
   }, [isPlaying, speed, onGameTick]);
 
-  const handleMove = useCallback(
-    (event: React.PointerEvent<HTMLElement>) => {
-      const target = event.target as HTMLElement;
-      const dataset = target.dataset;
-
-      if (cellRef.current !== target && dataset.type === 'cell') {
-        cellRef.current = target;
-
-        const row = parseInt(dataset?.row || '0');
-        const col = parseInt(dataset?.col || '0');
-        const live = JSON.parse(dataset?.live || 'false');
-
-        onCellClick(row, col, live);
-      }
-    },
-    [onCellClick, cellRef],
-  );
-
   return (
     <div>
-      <Grid grid={grid} onPointerMove={handleMove} />
+      <Grid grid={grid} onCellClick={onCellClick} />
       <button onClick={() => setPlaying(!isPlaying)}>{!isPlaying ? 'Play' : 'Pause'}</button>
       <button onClick={handleReset}>Reset</button>
       <div>
