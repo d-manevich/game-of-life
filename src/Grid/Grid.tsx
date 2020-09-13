@@ -14,21 +14,23 @@ const Grid: React.FC<Props> = ({ grid, onCellClick }: Props) => {
       const target = event.target as HTMLElement;
       const dataset = target.dataset;
 
-      const row = parseInt(dataset?.row || '0');
-      const col = parseInt(dataset?.col || '0');
-      const live = JSON.parse(dataset?.live || 'false');
+      if (dataset.type === 'cell') {
+        const row = parseInt(dataset?.row || '0');
+        const col = parseInt(dataset?.col || '0');
+        const live = JSON.parse(dataset?.live || 'false');
 
-      onCellClick(row, col, live);
+        onCellClick(row, col, live);
+      }
     },
     [onCellClick],
   );
 
   return (
-    <div className="Grid">
+    <div className="Grid" onClick={handleCellClick}>
       {grid.map((gridRow: boolean[], row: number) => (
         <div className="Grid-row" key={row}>
           {gridRow.map((cell: boolean, col: number) => (
-            <Cell key={col} live={cell} row={row} col={col} onClick={handleCellClick} />
+            <Cell key={col} live={cell} row={row} col={col} />
           ))}
         </div>
       ))}
