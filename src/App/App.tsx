@@ -1,8 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { generateInitialGrid, calcNextGeneration, updateCell } from '../game';
 import './App.css';
+
+import Grid from '../Grid';
 import GameRunner from '../GameRunner';
-import Controls from '../Controls';
+import ParamsEditor from '../ParamsEditor';
 import PresetSelector from '../PresetSelector';
 import { GridType, Params, Preset } from '../types';
 
@@ -44,10 +46,10 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <div>Generation: {generation}</div>
-      <GameRunner grid={grid} onGameTick={gameTick} onCellClick={handleCellClick} onReset={handleReset} />
-      <Controls params={params} updateParams={updateParams} />
+      <Grid grid={grid} onCellClick={handleCellClick} generation={generation} />
+      <GameRunner onGameTick={gameTick} onReset={handleReset} />
       <PresetSelector onSelect={handlePresetSelect} />
+      <ParamsEditor params={params} updateParams={updateParams} />
     </div>
   );
 };

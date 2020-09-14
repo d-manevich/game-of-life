@@ -1,0 +1,5 @@
+@media all and (orientation:landscape) {
+  .Presets {
+    order: -1;
+  }
+}

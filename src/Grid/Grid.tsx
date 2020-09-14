@@ -5,10 +5,11 @@ import { GridType } from '../types';
 
 type Props = {
   grid: GridType;
+  generation: number;
   onCellClick: (row: number, col: number, cell: boolean) => void;
 };
 
-const Grid: React.FC<Props> = ({ grid, onCellClick }: Props) => {
+const Grid: React.FC<Props> = ({ grid, generation, onCellClick }: Props) => {
   const handleCellClick = useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       const target = event.target as HTMLElement;
@@ -34,6 +35,7 @@ const Grid: React.FC<Props> = ({ grid, onCellClick }: Props) => {
           ))}
         </div>
       ))}
+      <div className="Generation">{generation}</div>
     </div>
   );
 };

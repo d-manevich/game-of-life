@@ -6,7 +6,7 @@ type Props = {
   updateParams: (params: Params) => void;
 };
 
-const Controls: React.FC<Props> = ({ params, updateParams }: Props) => (
+const ParamsEditor: React.FC<Props> = ({ params, updateParams }: Props) => (
   <div>
     <div>
       <span>rows </span>
@@ -25,4 +25,4 @@ const Controls: React.FC<Props> = ({ params, updateParams }: Props) => (
   </div>
 );
 
-export default Controls;
+export default ParamsEditor;

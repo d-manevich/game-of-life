@@ -1,6 +1,7 @@
 .Grid {
   user-select: none;
   touch-action: none;
+  position: relative;
   border: 1px dashed #61dafb;
   display: flex;
   flex-direction: column;
@@ -15,4 +16,13 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+
+.Generation {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  padding: 2px 8px;
+  background-color: #61dafb;
+  color: #282c34;
 }
