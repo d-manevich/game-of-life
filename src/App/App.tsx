@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import { nth } from '../utils';
 import { generateInitialGrid, calcNextGeneration, updateCell } from '../game';
 import './App.css';
 import GameRunner from '../GameRunner';
@@ -14,59 +13,41 @@ const initialParams: Params = {
 
 const App: React.FC = () => {
   const [params, setParams] = useState<Params>(initialParams);
-  const [history, setHistory] = useState<GridType[]>([generateInitialGrid(params)]);
-  const [generation, setGeneration] = useState<number>(0);
-  const currentState: GridType = nth(history, generation) || generateInitialGrid(params);
+  const [grid, setGrid] = useState<GridType>(generateInitialGrid(params));
+  const [generation, setGeneration] = useState(1);
 
-  const updateParams = useCallback(
-    (updParams: Params) => {
-      const newParams = { ...params, ...updParams };
-      setParams(newParams);
-      setHistory([generateInitialGrid(newParams)]);
-      setGeneration(0);
-    },
-    [params],
-  );
+  const updateParams = useCallback((updParams: Params) => {
+    setParams(updParams);
+    setGrid(generateInitialGrid(updParams));
+  }, []);
 
   const gameTick = useCallback(() => {
-    setHistory((history) => {
-      const cutHistory = history.slice(0, generation + 1);
-      return [...cutHistory, calcNextGeneration(nth(cutHistory, -1) || generateInitialGrid(params))];
-    });
-    setGeneration((generation) => generation + 1);
-  }, [params, generation]); // some shit
+    setGrid((prevGrid) => calcNextGeneration(prevGrid));
+    setGeneration((prevGen) => prevGen + 1);
+  }, []);
 
-  const handleCellClick = useCallback(
-    (row: number, col: number, cell: boolean) => {
-      setHistory([...history.slice(0, generation), updateCell(currentState, row, col, !cell)]);
-    },
-    [history, generation, currentState],
-  );
+  const handleCellClick = useCallback((row: number, col: number, cell: boolean) => {
+    setGrid((prevGrid) => updateCell(prevGrid, row, col, !cell));
+  }, []);
 
   const handleReset = useCallback(() => {
-    setHistory([generateInitialGrid(initialParams)]);
-    setGeneration(0);
+    setGrid(generateInitialGrid(initialParams));
+    setGeneration(1);
     setParams(initialParams);
+  }, []);
+
+  const handlePresetSelect = useCallback(({ params, grid }: Preset) => {
+    setGrid(grid);
+    setGeneration(1);
+    setParams(params);
   }, []);
 
   return (
     <div className="App">
-      <div>Generation: {generation + 1}</div>
-      <GameRunner grid={currentState} onGameTick={gameTick} onCellClick={handleCellClick} onReset={handleReset} />
-      <Controls
-        generation={generation}
-        maxGeneration={history.length - 1}
-        onGenerationChange={setGeneration}
-        params={params}
-        updateParams={updateParams}
-      />
-      <PresetSelector
-        onSelect={({ params, grid }: Preset) => {
-          setHistory([grid]);
-          setGeneration(0);
-          setParams(params);
-        }}
-      />
+      <div>Generation: {generation}</div>
+      <GameRunner grid={grid} onGameTick={gameTick} onCellClick={handleCellClick} onReset={handleReset} />
+      <Controls params={params} updateParams={updateParams} />
+      <PresetSelector onSelect={handlePresetSelect} />
     </div>
   );
 };
