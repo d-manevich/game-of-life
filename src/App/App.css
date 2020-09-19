@@ -11,8 +11,20 @@
   color: white;
 }
 
+.Controls-container {
+  display: flex;
+  flex-direction: column;
+}
+
 @media all and (orientation:portrait) {
   .App {
+    flex-direction: column;
+  }
+}
+
+@media all and (orientation:landscape) {
+  .Presets {
+    order: -1;
     flex-direction: column;
   }
 }

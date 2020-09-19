@@ -1,5 +1,10 @@
 export type GridType = boolean[][];
 
+export type Size = {
+  width: number;
+  height: number;
+};
+
 export type Params = {
   rows: number;
   cols: number;

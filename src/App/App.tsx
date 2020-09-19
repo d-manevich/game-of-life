@@ -2,11 +2,17 @@ import React, { useState, useCallback } from 'react';
 import { generateInitialGrid, calcNextGeneration, updateCell } from '../game';
 import './App.css';
 
-import Grid from '../Grid';
+import CanvasGrid from '../GameGrid';
+import ResizeContainer from '../GameGrid/ResizeContainer';
 import GameRunner from '../GameRunner';
 import ParamsEditor from '../ParamsEditor';
 import PresetSelector from '../PresetSelector';
 import { GridType, Params, Preset } from '../types';
+
+type Size = {
+  width: number;
+  height: number;
+};
 
 const initialParams: Params = {
   rows: 20,
@@ -17,6 +23,7 @@ const App: React.FC = () => {
   const [params, setParams] = useState<Params>(initialParams);
   const [grid, setGrid] = useState<GridType>(generateInitialGrid(params));
   const [generation, setGeneration] = useState(1);
+  const [size, setSize] = useState<Size>({ width: 0, height: 0 });
 
   const updateParams = useCallback((updParams: Params) => {
     setParams(updParams);
@@ -46,10 +53,14 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Grid grid={grid} onCellClick={handleCellClick} generation={generation} />
-      <GameRunner onGameTick={gameTick} onReset={handleReset} />
+      <ResizeContainer onResize={(width, height) => setSize({ width, height })}>
+        {!!size.width && !!size.height && <CanvasGrid availableSize={size} params={params} grid={grid} />}
+      </ResizeContainer>
+      <div className="Controls-container">
+        <GameRunner onGameTick={gameTick} onReset={handleReset} />
+        <ParamsEditor params={params} updateParams={updateParams} />
+      </div>
       <PresetSelector onSelect={handlePresetSelect} />
-      <ParamsEditor params={params} updateParams={updateParams} />
     </div>
   );
 };

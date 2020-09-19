@@ -1,0 +1,18 @@
+.ResizeContainer {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media all and (orientation:portrait) {
+  .ResizeContainer {
+    width: 100vw;
+  }
+}
+
+@media all and (orientation:landscape) {
+  .ResizeContainer {
+    height: 100vh;
+  }
+}

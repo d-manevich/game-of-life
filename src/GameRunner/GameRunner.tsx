@@ -29,6 +29,7 @@ const GameRunner: React.FC<Props> = ({ onGameTick, onReset }: Props) => {
   return (
     <div>
       <button onClick={() => setPlaying(!isPlaying)}>{!isPlaying ? 'Play' : 'Pause'}</button>
+      <button onClick={() => onGameTick()}>Next</button>
       <button onClick={handleReset}>Reset</button>
       <div>
         <span>Speed</span>

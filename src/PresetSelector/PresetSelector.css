@@ -1,5 +1,11 @@
+.Presets {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media all and (orientation:landscape) {
   .Presets {
     order: -1;
+    flex-direction: column;
   }
 }
