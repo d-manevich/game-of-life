@@ -36,8 +36,8 @@ const App: React.FC = () => {
     setGeneration((prevGen) => prevGen + 1);
   }, []);
 
-  const handleCellClick = useCallback((row: number, col: number, cell: boolean) => {
-    setGrid((prevGrid) => updateCell(prevGrid, row, col, !cell));
+  const handleCellClick = useCallback((row: number, col: number) => {
+    setGrid((prevGrid) => updateCell(prevGrid, row, col, !prevGrid[row][col]));
   }, []);
 
   const handleReset = useCallback(() => {
@@ -57,7 +57,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div className="ResizeContainer" ref={containerRef}>
-        {!!size.width && !!size.height && <CanvasGrid availableSize={size} params={params} grid={grid} />}
+        {!!size.width && !!size.height && (
+          <CanvasGrid availableSize={size} params={params} grid={grid} onCellTouch={handleCellClick} />
+        )}
       </div>
       <div className="Controls-container">
         <GameRunner onGameTick={gameTick} onReset={handleReset} />
