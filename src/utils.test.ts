@@ -1,58 +1,70 @@
-import { nth } from './utils';
+import { nth, clamp } from './utils';
 
-const testArray = ['a', 'b', 'c', 'd', 'e'];
+describe('nth', () => {
+  const testArray = ['a', 'b', 'c', 'd', 'e'];
 
-test('try to get any element of empty array', () => {
-  const elem = nth([], 3);
-  expect(elem).toBeUndefined();
+  test('try to get any element of empty array', () => {
+    const elem = nth([], 3);
+    expect(elem).toBeUndefined();
+  });
+
+  test('try to get the element at index 1 of one element array', () => {
+    const elem = nth(['a'], 1);
+    expect(elem).toBe('a');
+  });
+
+  test('try to get last element of one element array', () => {
+    const elem = nth(['a'], -1);
+    expect(elem).toBe('a');
+  });
+
+  test('try to get element with same negative index as array length', () => {
+    const elem = nth(testArray, -testArray.length);
+    expect(elem).toBe('a');
+  });
+
+  test('get the element at index 0', () => {
+    const elem = nth(testArray, 0);
+    expect(elem).toBe('a');
+  });
+
+  test('get the element in the middle of array', () => {
+    const elem = nth(testArray, 2);
+    expect(elem).toBe('c');
+  });
+
+  test('get the element at the end of array', () => {
+    const elem = nth(testArray, 4);
+    expect(elem).toBe('e');
+  });
+
+  test('get the element at index -1 (last element)', () => {
+    const elem = nth(testArray, -1);
+    expect(elem).toBe('e');
+  });
+
+  test('get the element at index 5 (first element, becouse last index is 4)', () => {
+    const elem = nth(testArray, 5);
+    expect(elem).toBe('a');
+  });
+
+  test('get the element at index -7', () => {
+    const elem = nth(testArray, -7);
+    expect(elem).toBe('d');
+  });
+
+  test('get the element at index 13', () => {
+    const elem = nth(testArray, 13);
+    expect(elem).toBe('d');
+  });
 });
 
-test('try to get the element at index 1 of one element array', () => {
-  const elem = nth(['a'], 1);
-  expect(elem).toBe('a');
-});
+describe('clamp', () => {
+  test('clamp(-10, -5, 5) -> -5', () => {
+    expect(clamp(-10, -5, 5)).toBe(-5);
+  });
 
-test('try to get last element of one element array', () => {
-  const elem = nth(['a'], -1);
-  expect(elem).toBe('a');
-});
-
-test('try to get element with same negative index as array length', () => {
-  const elem = nth(testArray, -testArray.length);
-  expect(elem).toBe('a');
-});
-
-test('get the element at index 0', () => {
-  const elem = nth(testArray, 0);
-  expect(elem).toBe('a');
-});
-
-test('get the element in the middle of array', () => {
-  const elem = nth(testArray, 2);
-  expect(elem).toBe('c');
-});
-
-test('get the element at the end of array', () => {
-  const elem = nth(testArray, 4);
-  expect(elem).toBe('e');
-});
-
-test('get the element at index -1 (last element)', () => {
-  const elem = nth(testArray, -1);
-  expect(elem).toBe('e');
-});
-
-test('get the element at index 5 (first element, becouse last index is 4)', () => {
-  const elem = nth(testArray, 5);
-  expect(elem).toBe('a');
-});
-
-test('get the element at index -7', () => {
-  const elem = nth(testArray, -7);
-  expect(elem).toBe('d');
-});
-
-test('get the element at index 13', () => {
-  const elem = nth(testArray, 13);
-  expect(elem).toBe('d');
+  test('clamp(10, -5, 5) -> 5', () => {
+    expect(clamp(10, -5, 5)).toBe(5);
+  });
 });
