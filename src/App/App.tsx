@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { generateInitialGrid, calcNextGeneration, updateCell } from '../game';
 import './App.css';
+import '../GameGrid/ResizeContainer.css';
 
 import CanvasGrid from '../GameGrid';
-import ResizeContainer from '../GameGrid/ResizeContainer';
+import useResize from '../GameGrid/ResizeContainer';
 import GameRunner from '../GameRunner';
 import ParamsEditor from '../ParamsEditor';
 import PresetSelector from '../PresetSelector';
@@ -51,11 +52,13 @@ const App: React.FC = () => {
     setParams(params);
   }, []);
 
+  const containerRef = useResize((width, height) => setSize({ width, height }));
+
   return (
     <div className="App">
-      <ResizeContainer onResize={(width, height) => setSize({ width, height })}>
+      <div className="ResizeContainer" ref={containerRef}>
         {!!size.width && !!size.height && <CanvasGrid availableSize={size} params={params} grid={grid} />}
-      </ResizeContainer>
+      </div>
       <div className="Controls-container">
         <GameRunner onGameTick={gameTick} onReset={handleReset} />
         <ParamsEditor params={params} updateParams={updateParams} />
