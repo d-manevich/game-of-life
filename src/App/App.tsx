@@ -1,13 +1,13 @@
 import React, { useState, useCallback } from 'react';
+import { useResize } from '../hooks';
 import { generateInitialGrid, calcNextGeneration, updateCell } from '../game';
 import './App.css';
-import '../GameGrid/ResizeContainer.css';
 
 import CanvasGrid from '../GameGrid';
-import useResize from '../GameGrid/ResizeContainer';
 import GameRunner from '../GameRunner';
 import ParamsEditor from '../ParamsEditor';
 import PresetSelector from '../PresetSelector';
+
 import { GridType, Params, Preset } from '../types';
 
 type Size = {
