@@ -1,12 +1,6 @@
-import React, { useRef, useEffect } from 'react';
-import './ResizeContainer.css';
+import { useRef, useEffect } from 'react';
 
-type Props = {
-  onResize: (width: number, height: number) => void;
-  children: React.ReactNode;
-};
-
-const ResizeContainer: React.FC<Props> = ({ onResize, children }: Props) => {
+const useResize = (onResize: (width: number, height: number) => void): React.RefObject<HTMLDivElement> => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,11 +21,7 @@ const ResizeContainer: React.FC<Props> = ({ onResize, children }: Props) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return (
-    <div className="ResizeContainer" ref={containerRef}>
-      {children}
-    </div>
-  );
+  return containerRef;
 };
 
-export default ResizeContainer;
+export default useResize;
