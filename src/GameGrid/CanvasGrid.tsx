@@ -68,8 +68,14 @@ const CanvasGrid: React.FC<Props> = ({ availableSize, params, grid, onCellTouch 
     isDrawing.current = true;
   }, []);
 
-  const handlePointerUp = useCallback(() => {
-    isDrawing.current = false;
+  useEffect(() => {
+    const handlePointerUp = () => {
+      isDrawing.current = false;
+    };
+
+    window.addEventListener('pointerup', handlePointerUp);
+
+    return () => window.removeEventListener('pointerup', handlePointerUp);
   }, []);
 
   const handlePointerMove = useCallback(
@@ -99,7 +105,6 @@ const CanvasGrid: React.FC<Props> = ({ availableSize, params, grid, onCellTouch 
       width={Math.floor(params.cols * cellSize * window.devicePixelRatio)}
       height={Math.floor(params.rows * cellSize * window.devicePixelRatio)}
       onPointerDown={handlePointerDown}
-      onPointerUp={handlePointerUp}
       onPointerMove={handlePointerMove}
     />
   );
