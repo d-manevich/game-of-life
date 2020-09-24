@@ -2,6 +2,9 @@ import React, { useRef, useEffect, useMemo, useCallback } from 'react';
 import { clamp } from '../utils';
 import { Size, Params, GridType } from '../types';
 
+const MARGIN = 2;
+const LINE_WIDTH = 1.0;
+
 type Props = {
   availableSize: Size;
   params: Params;
@@ -23,25 +26,24 @@ function calcCellSize(availableSize: Size, params: Params): number {
 
 function draw(context: CanvasRenderingContext2D, grid: GridType, cellSize: number) {
   const scale = window.devicePixelRatio;
-  const lineWidth = 1.0;
   context.scale(scale, scale);
   context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-  context.strokeStyle = '#61dafb';
-  context.fillStyle = '#61dafb';
-  context.lineWidth = 1.0;
+  context.strokeStyle = '#C7C7C7';
+  context.fillStyle = '#F7C476';
+  context.lineWidth = LINE_WIDTH;
 
   grid.forEach((row, y) =>
     row.forEach((cell, x) => {
       context.beginPath();
 
       if (cell) {
-        context.fillRect(x * cellSize + 1, y * cellSize + 1, cellSize - 2, cellSize - 2);
+        context.fillRect(x * cellSize + MARGIN / 2, y * cellSize + MARGIN / 2, cellSize - MARGIN, cellSize - MARGIN);
       } else {
         context.strokeRect(
-          x * cellSize + 1 + lineWidth / 2,
-          y * cellSize + 1 + lineWidth / 2,
-          cellSize - 2 - lineWidth,
-          cellSize - 2 - lineWidth,
+          x * cellSize + MARGIN / 2 + LINE_WIDTH / 2,
+          y * cellSize + MARGIN / 2 + LINE_WIDTH / 2,
+          cellSize - MARGIN - LINE_WIDTH,
+          cellSize - MARGIN - LINE_WIDTH,
         );
       }
     }),
