@@ -61,10 +61,8 @@ const App: React.FC = () => {
           <CanvasGrid availableSize={size} params={params} grid={grid} onCellTouch={handleCellClick} />
         )}
       </div>
-      <div className="Controls-container">
-        <GameRunner onGameTick={gameTick} onReset={handleReset} />
-        <ParamsEditor params={params} updateParams={updateParams} />
-      </div>
+      <GameRunner onGameTick={gameTick} onReset={handleReset} />
+      <ParamsEditor params={params} updateParams={updateParams} />
       <PresetSelector onSelect={handlePresetSelect} />
     </div>
   );

@@ -1,1 +1,29 @@
+.Controls {
+  display: flex;
+}
 
+.Button {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.Button.play {
+  background-color: #00CD6B;
+  background-image: linear-gradient(90deg, #00CD6B, #8DDAAC);
+}
+.Button.pause {
+  background-color: #F6D365;
+  background-image: linear-gradient(90deg, #F6D365, #FDA085);
+}
+.Button.reset {
+  border: 1px solid #C7C7C7;
+}
